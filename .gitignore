@@ -1,0 +1,10 @@
+backend/venv/
+backend/fastf1_cache/
+backend/.env
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/**/__pycache__/
+# frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env

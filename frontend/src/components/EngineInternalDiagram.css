@@ -1,0 +1,845 @@
+/* =========================================================
+   2026 F1 INTERNAL ENGINE ARCHITECTURE
+========================================================= */
+
+.engine-section {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  margin-top: 2.5rem;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.engine-section-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.engine-eyebrow {
+  display: block;
+
+  color: var(--f1-red);
+
+  font-family: monospace;
+
+  font-size: 0.58rem;
+
+  letter-spacing: 0.16em;
+
+  margin-bottom: 0.35rem;
+}
+
+.engine-section-header h2 {
+  margin: 0;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.08em;
+}
+
+.engine-section-header p {
+  margin: 0.35rem 0 0;
+
+  font-size: 0.72rem;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.engine-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  font-family: monospace;
+
+  font-size: 0.52rem;
+
+  letter-spacing: 0.12em;
+
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.engine-status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--f1-red);
+
+  box-shadow:
+    0 0 5px var(--f1-red),
+    0 0 12px var(--f1-red-glow);
+
+  animation:
+    engine-status-pulse
+    1.8s
+    ease-in-out
+    infinite;
+}
+
+@keyframes engine-status-pulse {
+
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   DIAGRAM STAGE
+========================================================= */
+
+.engine-diagram-stage {
+  position: relative;
+
+  width: 100%;
+
+  height: 400px;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(225, 6, 0, 0.035),
+      transparent 55%
+    ),
+    #050505;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SVG
+========================================================= */
+
+.engine-diagram-svg {
+  display: block;
+
+  width: 100%;
+
+  height: 400px;
+
+  animation:
+    engine-enter
+    0.9s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+@keyframes engine-enter {
+
+  from {
+    opacity: 0;
+
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.engine-grid-dot {
+  fill: rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   FRAME
+========================================================= */
+
+.engine-frame path {
+  fill: none;
+
+  stroke: rgba(255, 255, 255, 0.13);
+
+  stroke-width: 1;
+
+  stroke-dasharray: 2 7;
+}
+
+
+/* =========================================================
+   CORNERS
+========================================================= */
+
+.engine-corner {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.engine-corner-tl {
+  top: 12px;
+  left: 12px;
+
+  border-top: 2px solid rgba(255, 255, 255, 0.22);
+
+  border-left: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+.engine-corner-tr {
+  top: 12px;
+  right: 12px;
+
+  border-top: 2px solid rgba(255, 255, 255, 0.22);
+
+  border-right: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+.engine-corner-bl {
+  bottom: 12px;
+  left: 12px;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.22);
+
+  border-left: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+.engine-corner-br {
+  bottom: 12px;
+  right: 12px;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.22);
+
+  border-right: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+
+/* =========================================================
+   RUNNING ORANGE / RED ENERGY LINES
+========================================================= */
+
+.engine-energy-circuit {
+  pointer-events: none;
+}
+
+.engine-running-line {
+  fill: none;
+
+  stroke: var(--f1-red);
+
+  stroke-width: 1.5;
+
+  stroke-dasharray: 8 17;
+
+  stroke-linecap: square;
+
+  animation:
+    engine-flow
+    2.4s
+    linear
+    infinite;
+
+  filter:
+    drop-shadow(
+      0 0 4px var(--f1-red-glow)
+    );
+}
+
+.air-line {
+  stroke-width: 1.1;
+
+  animation-duration: 2s;
+}
+
+.exhaust-line {
+  stroke-width: 1.1;
+
+  animation-duration: 1.7s;
+}
+
+.electrical-line {
+  stroke-width: 1.8;
+
+  animation-duration: 1.3s;
+}
+
+@keyframes engine-flow {
+
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -50;
+  }
+
+}
+
+
+/* =========================================================
+   GENERAL COMPONENTS
+========================================================= */
+
+.engine-component {
+  fill: rgba(255, 255, 255, 0.025);
+
+  stroke: rgba(255, 255, 255, 0.6);
+
+  stroke-width: 1.3;
+}
+
+
+/* =========================================================
+   TURBO
+========================================================= */
+
+.turbo-housing {
+  fill: rgba(255, 255, 255, 0.02);
+
+  stroke: rgba(255, 255, 255, 0.6);
+
+  stroke-width: 1.4;
+}
+
+.turbo-core {
+  fill: rgba(225, 6, 0, 0.07);
+
+  stroke: var(--f1-red);
+
+  stroke-width: 1.2;
+
+  filter:
+    drop-shadow(
+      0 0 4px var(--f1-red-glow)
+    );
+
+  animation:
+    turbo-pulse
+    1.8s
+    ease-in-out
+    infinite;
+}
+
+.turbo-detail {
+  fill: none;
+
+  stroke: rgba(255, 255, 255, 0.25);
+
+  stroke-width: 1;
+}
+
+.turbo-shaft {
+  stroke: rgba(255, 255, 255, 0.45);
+
+  stroke-width: 2;
+}
+
+@keyframes turbo-pulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   ENGINE BLOCK
+========================================================= */
+
+.engine-block-shape {
+  fill: rgba(255, 255, 255, 0.025);
+
+  stroke: rgba(255, 255, 255, 0.72);
+
+  stroke-width: 1.6;
+}
+
+
+/* =========================================================
+   CYLINDER HEAD
+========================================================= */
+
+.cylinder-head {
+  fill: rgba(255, 255, 255, 0.018);
+
+  stroke: rgba(255, 255, 255, 0.4);
+
+  stroke-width: 1;
+}
+
+
+/* =========================================================
+   CYLINDERS
+========================================================= */
+
+.cylinder {
+  fill: rgba(225, 6, 0, 0.025);
+
+  stroke: rgba(225, 6, 0, 0.42);
+
+  stroke-width: 1;
+}
+
+
+/* =========================================================
+   COMBUSTION
+========================================================= */
+
+.combustion {
+  fill: rgba(225, 6, 0, 0.08);
+
+  stroke: var(--f1-red);
+
+  stroke-width: 1;
+
+  filter:
+    drop-shadow(
+      0 0 4px var(--f1-red-glow)
+    );
+}
+
+
+/* =========================================================
+   PISTONS
+========================================================= */
+
+.piston {
+  fill: rgba(255, 255, 255, 0.045);
+
+  stroke: rgba(255, 255, 255, 0.62);
+
+  stroke-width: 1;
+}
+
+
+/* =========================================================
+   CONNECTING RODS
+========================================================= */
+
+.connecting-rods line {
+  stroke: rgba(255, 255, 255, 0.4);
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+}
+
+
+/* =========================================================
+   CRANKSHAFT
+========================================================= */
+
+.crankshaft {
+  stroke: rgba(255, 255, 255, 0.78);
+
+  stroke-width: 4;
+
+  stroke-linecap: round;
+}
+
+.crank-journal {
+  fill: rgba(225, 6, 0, 0.07);
+
+  stroke: var(--f1-red);
+
+  stroke-width: 1;
+}
+
+
+/* =========================================================
+   CAMSHAFT
+========================================================= */
+
+.camshaft {
+  stroke: rgba(255, 255, 255, 0.5);
+
+  stroke-width: 2.5;
+}
+
+
+/* =========================================================
+   VALVES
+========================================================= */
+
+.valves line {
+  stroke: rgba(255, 255, 255, 0.45);
+
+  stroke-width: 1.7;
+}
+
+
+/* =========================================================
+   INJECTORS
+========================================================= */
+
+.injectors circle {
+  fill: var(--f1-red);
+
+  filter:
+    drop-shadow(
+      0 0 4px var(--f1-red-glow)
+    );
+}
+
+
+/* =========================================================
+   EXHAUST MANIFOLD
+========================================================= */
+
+.exhaust-manifold {
+  fill: none;
+
+  stroke: rgba(255, 255, 255, 0.38);
+
+  stroke-width: 1.3;
+
+  stroke-linecap: round;
+}
+
+
+/* =========================================================
+   MGU-K
+========================================================= */
+
+.mgu-k-box {
+  fill: rgba(225, 6, 0, 0.04);
+
+  stroke: var(--f1-red);
+
+  stroke-width: 1.2;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(225, 6, 0, 0.15)
+    );
+}
+
+
+/* =========================================================
+   ENERGY STORE
+========================================================= */
+
+.energy-store-box {
+  fill: rgba(225, 6, 0, 0.025);
+
+  stroke: rgba(225, 6, 0, 0.5);
+
+  stroke-width: 1.1;
+}
+
+.battery-line {
+  stroke: rgba(225, 6, 0, 0.4);
+
+  stroke-width: 1;
+}
+
+
+/* =========================================================
+   CONTROL ELECTRONICS
+========================================================= */
+
+.electronics-box {
+  fill: rgba(255, 255, 255, 0.018);
+
+  stroke: rgba(255, 255, 255, 0.4);
+
+  stroke-width: 1;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.engine-label,
+.engine-annotations text {
+  fill: rgba(255, 255, 255, 0.28);
+
+  font-family: monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 1.7px;
+}
+
+.component-label {
+  fill: var(--f1-red);
+
+  font-family: monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   HOTSPOTS
+========================================================= */
+
+.engine-hotspot {
+  cursor: pointer;
+}
+
+.engine-hotspot-hit {
+  fill: transparent;
+
+  pointer-events: all;
+}
+
+.engine-hotspot-ring {
+  fill: none;
+
+  stroke: var(--f1-red);
+
+  stroke-width: 1;
+
+  stroke-dasharray: 3 4;
+
+  opacity: 0.48;
+
+  transform-box: fill-box;
+
+  transform-origin: center;
+
+  animation:
+    engine-hotspot-rotate
+    4s
+    linear
+    infinite;
+}
+
+.engine-hotspot-dot {
+  fill: var(--f1-red);
+
+  filter:
+    drop-shadow(
+      0 0 5px var(--f1-red-glow)
+    );
+}
+
+.engine-hotspot.active .engine-hotspot-ring {
+  opacity: 1;
+
+  stroke-width: 2;
+
+  stroke-dasharray: none;
+}
+
+.engine-hotspot.active .engine-hotspot-dot {
+  r: 6;
+}
+
+@keyframes engine-hotspot-rotate {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   BOTTOM HUD
+========================================================= */
+
+.engine-bottom-hud {
+  position: absolute;
+
+  left: 35px;
+  right: 35px;
+  bottom: 12px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  pointer-events: none;
+
+  font-family: monospace;
+
+  font-size: 0.42rem;
+
+  letter-spacing: 0.1em;
+
+  color: rgba(255, 255, 255, 0.23);
+}
+
+.engine-bottom-hud b {
+  color: var(--f1-red);
+
+  font-weight: 500;
+
+  margin-right: 0.25rem;
+}
+
+
+/* =========================================================
+   INFO PANEL
+========================================================= */
+
+.engine-info-panel {
+  min-height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0.9rem 1.2rem;
+
+  border: 1px solid var(--f1-divider);
+
+  border-left: 3px solid var(--f1-red);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(225, 6, 0, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+}
+
+.engine-info-panel.visible {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(225, 6, 0, 0.07),
+      rgba(255, 255, 255, 0.018)
+    );
+}
+
+.engine-info-number {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-right: 0.9rem;
+
+  border: 1px solid rgba(225, 6, 0, 0.3);
+
+  color: var(--f1-red);
+
+  font-family: monospace;
+
+  font-size: 0.62rem;
+}
+
+.engine-info-title {
+  display: block;
+
+  color: var(--f1-red);
+
+  font-size: 0.6rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  margin-bottom: 0.25rem;
+}
+
+.engine-info-panel p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.78rem;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .engine-status {
+    display: none;
+  }
+
+  .engine-diagram-stage,
+  .engine-diagram-svg {
+    height: 360px;
+  }
+
+  .engine-bottom-hud {
+    left: 20px;
+    right: 20px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .engine-section-header h2 {
+    font-size: 0.85rem;
+  }
+
+  .engine-section-header p {
+    font-size: 0.65rem;
+  }
+
+  .engine-diagram-stage,
+  .engine-diagram-svg {
+    height: 320px;
+  }
+
+  .engine-bottom-hud {
+    display: none;
+  }
+
+  .engine-info-panel p {
+    font-size: 0.7rem;
+  }
+
+}

@@ -1,0 +1,108 @@
+.f1-dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.f1-dropdown label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--f1-white);
+  opacity: 0.45;
+}
+
+.f1-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--f1-divider);
+  border-radius: 10px;
+  color: var(--f1-white);
+  padding: 0.7rem 1rem;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.f1-dropdown-trigger:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.f1-dropdown-trigger.open {
+  border-color: var(--f1-red);
+  box-shadow: 0 0 0 3px var(--f1-red-glow);
+}
+
+.f1-dropdown-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.f1-dropdown-arrow {
+  color: var(--f1-red);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.f1-dropdown-trigger.open .f1-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.f1-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--f1-divider);
+  border-radius: 12px;
+  padding: 0.4rem;
+  z-index: 200;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  animation: dropdown-fade-in 0.15s ease;
+}
+
+@keyframes dropdown-fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.f1-dropdown-item {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.f1-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.f1-dropdown-item.selected {
+  background: var(--f1-red);
+  color: var(--f1-white);
+  font-weight: 700;
+}
+
+.f1-dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.f1-dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--f1-red);
+  border-radius: 100px;
+}

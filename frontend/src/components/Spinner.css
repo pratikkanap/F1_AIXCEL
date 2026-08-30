@@ -1,0 +1,29 @@
+.f1-spinner-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 0;
+}
+
+.f1-spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--f1-divider);
+  border-top-color: var(--f1-red);
+  border-radius: 50%;
+  animation: f1-spin 0.7s linear infinite;
+  box-shadow: 0 0 10px var(--f1-red-glow);
+}
+
+@keyframes f1-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.f1-spinner-label {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  font-family: var(--f1-mono-font);
+  letter-spacing: 0.04em;
+}

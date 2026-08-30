@@ -1,0 +1,215 @@
+:root {
+  --f1-black: #000000;
+  --f1-surface: rgba(255, 255, 255, 0.03);
+  --f1-surface-hover: rgba(255, 255, 255, 0.06);
+  --f1-red: #E10600;
+  --f1-red-glow: rgba(225, 6, 0, 0.35);
+  --f1-red-dark: #9A0500;
+  --f1-white: #FFFFFF;
+  --f1-grey: #808080;
+  --f1-divider: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: #000000;
+}
+
+body {
+  background: #000000;
+  color: var(--f1-white);
+  font-family: "Titillium Web", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mono {
+  font-family: "Roboto Mono", monospace;
+}
+
+::selection {
+  background: var(--f1-red);
+  color: var(--f1-white);
+}
+
+/* ================================
+   F1 STYLE SCROLLBAR
+================================ */
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #9d9d9d #000000;
+}
+
+/* Chrome / Edge / Safari */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-left: 1px solid #151515;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #bdbdbd 0%,
+    #969696 50%,
+    #bdbdbd 100%
+  );
+
+  border-radius: 5px;
+  border: 3px solid #000000;
+
+  box-shadow:
+    inset 1px 0 0 #d5d5d5,
+    inset -1px 0 0 #707070;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #ff3029 0%,
+    #e10600 50%,
+    #a90400 100%
+  );
+
+  box-shadow:
+    0 0 8px rgba(225, 6, 0, 0.6),
+    inset 1px 0 0 #ff5a55,
+    inset -1px 0 0 #8a0000;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+/* ================================
+   BLACK NAVBAR
+================================ */
+
+nav,
+.navbar,
+.nav-bar,
+header {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  box-shadow: none !important;
+  border-color: transparent;
+}
+
+/* If your navbar has a container */
+.navbar-container,
+.nav-container {
+  background: #000000 !important;
+}
+
+/* Keep navbar text visible */
+nav a,
+.navbar a,
+.nav-bar a {
+  color: #ffffff;
+}
+
+/* Red hover */
+nav a:hover,
+.navbar a:hover,
+.nav-bar a:hover {
+  color: #e10600;
+}
+/* ================================
+   INPUT + BUTTON EDGE STYLE
+================================ */
+
+input,
+select,
+textarea,
+button {
+  border-radius: 0 !important;
+}
+
+/* Input / Select */
+input,
+select,
+textarea {
+  background: #0a0a0a;
+  color: #ffffff;
+  border: 2px solid #e10600;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Focus */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff3029;
+  box-shadow: 0 0 0 1px #e10600;
+}
+
+/* Button */
+button {
+  background: #e10600;
+  color: #ffffff;
+  border: 2px solid #e10600;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* Button hover */
+button:hover {
+  border-color: #ff3029;
+}
+input,
+select,
+textarea,
+button {
+  border-radius: 0 !important;
+  position: relative;
+}
+
+/* Input */
+input,
+select,
+textarea {
+  border: 2px solid #e10600;
+  background: #0a0a0a;
+  color: #fff;
+  box-shadow:
+    3px 3px 0 #7a0000;
+}
+
+/* Button */
+button {
+  border: 2px solid #ff3029;
+  background: #e10600;
+  color: #fff;
+ 
+}
+
+/* Press effect */
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    1px 1px 0 #7a0000;
+}
+/* Hide scrollbar visually while keeping scroll functional */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
+}
+
+body {
+  -ms-overflow-style: none; /* IE/legacy Edge */
+}

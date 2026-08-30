@@ -1,0 +1,65 @@
+.f1-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--f1-divider);
+}
+
+.f1-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.f1-nav-logo {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.f1-logo-accent {
+  color: var(--f1-red);
+  margin-left: 0.35rem;
+  text-shadow: 0 0 20px var(--f1-red-glow);
+}
+
+.f1-nav-links {
+  display: flex;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--f1-divider);
+  border-radius: 100px;
+  padding: 0.3rem;
+}
+
+.f1-nav-tab {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--f1-white);
+  opacity: 0.5;
+  text-decoration: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 100px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.f1-nav-tab:hover {
+  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.f1-nav-tab.active {
+  opacity: 1;
+  background: var(--f1-red);
+  color: var(--f1-white);
+  box-shadow: 0 0 24px var(--f1-red-glow);
+}
