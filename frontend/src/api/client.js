@@ -7,7 +7,6 @@ const API_URL =
 const apiClient = axios.create({
   baseURL: API_URL,
   timeout: 15000,
-  headers: API_KEY ? { "X-API-Key": API_KEY } : {},
 });
 
 
