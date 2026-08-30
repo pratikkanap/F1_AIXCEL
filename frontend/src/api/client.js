@@ -4,8 +4,8 @@ import { withCache } from "./cache";
 const API_KEY = import.meta.env.VITE_API_KEY || "";
 
 const apiClient = axios.create({
-  baseURL: "http://127.0.0.1:8000",
-  timeout: 15000, // fail fast — 15s per attempt, not 45s
+  baseURL: "https://f1-aixcel.onrender.com",
+  timeout: 15000,
   headers: API_KEY ? { "X-API-Key": API_KEY } : {},
 });
 
