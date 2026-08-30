@@ -1,13 +1,15 @@
 import axios from "axios";
 import { withCache } from "./cache";
 
-const API_KEY = import.meta.env.VITE_API_KEY || "";
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 const apiClient = axios.create({
-  baseURL: "http://127.0.0.1:8000",
-  timeout: 15000, // fail fast — 15s per attempt, not 45s
+  baseURL: API_URL,
+  timeout: 15000,
   headers: API_KEY ? { "X-API-Key": API_KEY } : {},
 });
+
 
 // ---- Retry logic: short, fast, only for genuinely transient failures ----
 const MAX_RETRIES = 2; // was 3 — fewer retries means faster total failure time
