@@ -6,13 +6,15 @@ from app.utils.cache import clear_cache
 from app.routers import sessions, chat, standings, circuit, summary, media, telemetry, coach
 app = FastAPI(title="F1 Telemetry Analysis Tool")
 
+origins = [
+    "https://f1-aixcel-git-main-a-92be97a5.vercel.app",  # your current preview URL
+    "https://f1-aixcel.vercel.app",                       # your production domain (update to your real one)
+    "http://localhost:5173",                              # local dev
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://f1-aixcel-git-main-a-92be97a5.vercel.app",
-        "https://f1-aixcel.vercel.app",  # your production domain, if different
-        "http://localhost:5173",  # for local dev
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
