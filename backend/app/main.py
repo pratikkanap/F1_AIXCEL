@@ -8,7 +8,11 @@ app = FastAPI(title="F1 Telemetry Analysis Tool")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://f1-aixcel.vercel.app"],
+    allow_origins=[
+        "https://f1-aixcel-git-main-a-92be97a5.vercel.app",
+        "https://f1-aixcel.vercel.app",  # your production domain, if different
+        "http://localhost:5173",  # for local dev
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

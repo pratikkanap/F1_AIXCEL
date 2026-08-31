@@ -1,17 +1,7 @@
 import axios from "axios";
 import { withCache } from "./cache";
 
-// IMPORTANT:
-// VITE_API_URL should be set in your deployment platform's environment variables
-// (Vercel/Netlify/Render static site settings) to:
-//   https://f1-aixcel.onrender.com
-// Vite bakes this in at BUILD TIME, so after setting/changing it you must trigger
-// a fresh build/deploy — restarting the server alone will not pick up the change.
-//
-// The fallback below now points to your deployed backend instead of localhost,
-// so if the env var is ever missing, the app still works instead of silently
-// trying to hit 127.0.0.1:8000.
-const API_URL = import.meta.env.VITE_API_URL || "https://f1-aixcel.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 const API_KEY = import.meta.env.VITE_API_KEY || "";
 
 const apiClient = axios.create({
