@@ -1,18 +1,18 @@
 import axios from "axios";
 import { withCache } from "./cache";
 
-const API_URL =
-  import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const API_KEY = import.meta.env.VITE_API_KEY || "";
 
 const apiClient = axios.create({
   baseURL: API_URL,
   timeout: 15000,
+  headers: API_KEY ? { "X-API-Key": API_KEY } : {},
 });
 
-
 // ---- Retry logic: short, fast, only for genuinely transient failures ----
-const MAX_RETRIES = 2; // was 3 — fewer retries means faster total failure time
-const RETRY_DELAY_MS = 800; // was 1500 — shorter backoff
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 800;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -24,7 +24,6 @@ apiClient.interceptors.response.use(
 
     config._retryCount = config._retryCount || 0;
 
-    // Only retry on genuinely transient issues — never on 4xx (won't fix itself)
     const isRetryable =
       !error.response ||
       error.code === "ECONNABORTED" ||
@@ -79,7 +78,7 @@ export const getConstructorStandings = async (year) => {
 export const getTrackMap = async (year, gp, sessionType) => {
   return withCache(`trackmap:${year}:${gp}:${sessionType}`, async () => {
     const response = await apiClient.get(`/circuit/${year}/${gp}/${sessionType}/track-map`, {
-      timeout: 40000, // full telemetry loads are genuinely slower — give this one more room
+      timeout: 40000,
     });
     return response.data;
   });
