@@ -9,9 +9,11 @@
   margin: 0 auto;
 }
 
+
 /* ==============================
    FILTERS
 ============================== */
+
 .f1-filters {
   display: flex;
   align-items: flex-end;
@@ -86,9 +88,11 @@
   font-size: 0.85rem;
 }
 
+
 /* ==============================
    TIMING TOWER
 ============================== */
+
 .f1-timing-tower {
   margin-top: 1rem;
 }
@@ -153,9 +157,11 @@
   text-align: right;
 }
 
+
 /* ==============================
-   STANDINGS (CLEAN + FIXED)
+   STANDINGS
 ============================== */
+
 .f1-section-title {
   font-size: 0.95rem;
   letter-spacing: 0.08em;
@@ -171,7 +177,11 @@
   gap: 2.5rem;
 }
 
-/* Navbar */
+
+/* ==============================
+   STANDINGS NAVBAR
+============================== */
+
 .standings-navbar {
   display: flex;
   align-items: center;
@@ -181,8 +191,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Year Select */
-/* Year Select - no hover effect */
+
+/* ==============================
+   YEAR SELECT
+============================== */
+
 .standings-year-select select {
   appearance: none;
   -webkit-appearance: none;
@@ -199,16 +212,16 @@
   font-weight: 600;
   font-family: "Titillium Web", sans-serif;
   cursor: pointer;
-  transition: none; /* removed transition */
+  transition: none;
 }
 
-/* Remove hover + focus border change */
 .standings-year-select select:hover,
 .standings-year-select select:focus {
-  border-color: rgba(255, 255, 255, 0.22); /* same as normal */
+  border-color: rgba(255, 255, 255, 0.22);
   outline: none;
   box-shadow: none;
 }
+
 .standings-year-select select option {
   background: #1a1a1a;
   color: #fff;
@@ -219,7 +232,11 @@
   color: #fff;
 }
 
-/* Tabs */
+
+/* ==============================
+   TABS
+============================== */
+
 .standings-tabs {
   display: flex;
   gap: 1.8rem;
@@ -257,7 +274,11 @@
   border-radius: 2px 2px 0 0;
 }
 
-/* Table Card */
+
+/* ==============================
+   TABLE CARD
+============================== */
+
 .standings-table-wrapper {
   background: #111111;
   border-radius: 12px;
@@ -265,7 +286,6 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Drivers Table - 5 columns */
 .standings-header-row,
 .standings-row {
   display: grid;
@@ -298,7 +318,11 @@
   background: rgba(255, 255, 255, 0.025);
 }
 
-/* Columns */
+
+/* ==============================
+   STANDINGS COLUMNS
+============================== */
+
 .standings-row .col-pos {
   font-variant-numeric: tabular-nums;
   font-weight: 500;
@@ -377,7 +401,11 @@
   color: #ffffff;
 }
 
-/* Constructors / Teams Table - 3 columns */
+
+/* ==============================
+   CONSTRUCTORS
+============================== */
+
 .constructors-table .standings-header-row,
 .constructors-table .standings-row {
   grid-template-columns: 70px 1fr 100px !important;
@@ -396,16 +424,22 @@
   text-overflow: ellipsis;
 }
 
-/* Loading */
+
+/* ==============================
+   LOADING
+============================== */
+
 .f1-loading {
   text-align: center;
   padding: 3rem 1rem;
   color: rgba(255, 255, 255, 0.45);
 }
 
+
 /* ==============================
    SCHEDULE
 ============================== */
+
 .f1-calendar-list {
   display: flex;
   flex-direction: column;
@@ -450,9 +484,11 @@
   font-size: 0.85rem;
 }
 
+
 /* ==============================
    CIRCUIT
 ============================== */
+
 .track-map-container {
   margin-top: 1.5rem;
   background: var(--f1-surface);
@@ -468,9 +504,11 @@
   display: block;
 }
 
+
 /* ==============================
    SUMMARY PAGE
 ============================== */
+
 .summary-layout {
   display: flex;
   flex-direction: column;
@@ -635,7 +673,12 @@
 .learn-item-body p:last-child {
   margin-bottom: 0;
 }
-/* TEAMS PAGE */
+
+
+/* ==============================
+   TEAMS PAGE
+============================== */
+
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
@@ -645,13 +688,20 @@
 
 .team-card {
   position: relative;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.01)
+  );
   backdrop-filter: blur(14px);
   border: 1px solid var(--f1-divider);
   border-radius: 20px;
   padding: 1.6rem 1.6rem 1.8rem;
   overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .team-card::before {
@@ -661,14 +711,31 @@
   right: -20%;
   width: 60%;
   height: 140%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--team-color) 22%, transparent), transparent 70%);
+  background: radial-gradient(
+    circle,
+    color-mix(
+      in srgb,
+      var(--team-color) 22%,
+      transparent
+    ),
+    transparent 70%
+  );
   pointer-events: none;
 }
 
 .team-card:hover {
   transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--team-color) 60%, var(--f1-divider));
-  box-shadow: 0 20px 50px color-mix(in srgb, var(--team-color) 20%, transparent);
+  border-color: color-mix(
+    in srgb,
+    var(--team-color) 60%,
+    var(--f1-divider)
+  );
+  box-shadow: 0 20px 50px
+    color-mix(
+      in srgb,
+      var(--team-color) 20%,
+      transparent
+    );
 }
 
 .team-card-header {
@@ -770,11 +837,13 @@
   display: block;
 }
 
+
 /* ==============================
    HERO PAGE
 ============================== */
+
 .hero-page {
-    padding-top: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 .hero-heading {
@@ -840,9 +909,11 @@
   border-radius: 6px;
 }
 
+
 /* ==============================
    LEARN F1
 ============================== */
+
 .learn-categories {
   width: 100%;
   display: grid;
@@ -858,7 +929,10 @@
   border: 1px solid #242424;
   border-radius: 18px;
   min-height: 170px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .learn-category-card::before {
@@ -1028,9 +1102,11 @@
   }
 }
 
+
 /* ==============================
    TELEMETRY CHARTS
 ============================== */
+
 .telemetry-chart-card {
   background: var(--f1-surface);
   backdrop-filter: blur(10px);
@@ -1091,9 +1167,11 @@
   opacity: 0.4;
 }
 
+
 /* ==============================
    DETAIL / DRIVER / TEAM CARDS
 ============================== */
+
 .team-card-link {
   text-decoration: none;
   color: inherit;
@@ -1137,7 +1215,12 @@
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--team-color);
-  box-shadow: 0 0 30px color-mix(in srgb, var(--team-color) 45%, transparent);
+  box-shadow: 0 0 30px
+    color-mix(
+      in srgb,
+      var(--team-color) 45%,
+      transparent
+    );
 }
 
 .detail-hero-fallback {
@@ -1170,7 +1253,11 @@
   font-size: 0.95rem;
 }
 
-/* DRIVER CARD */
+
+/* ==============================
+   DRIVER CARD
+============================== */
+
 .driver-card {
   position: relative;
   display: flex;
@@ -1180,7 +1267,6 @@
   height: 100px;
   border-radius: 14px;
   overflow: hidden;
-  
   text-decoration: none;
   color: var(--f1-white);
   background: linear-gradient(
@@ -1190,12 +1276,19 @@
     color-mix(in srgb, var(--team-color) 25%, #000) 65%,
     #050505 100%
   );
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .driver-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 34px color-mix(in srgb, var(--team-color) 35%, transparent);
+  box-shadow: 0 14px 34px
+    color-mix(
+      in srgb,
+      var(--team-color) 35%,
+      transparent
+    );
 }
 
 .driver-card-texture {
@@ -1203,10 +1296,23 @@
   inset: 0;
   z-index: 1;
   opacity: 0.5;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.35) 1px,
+    transparent 1px
+  );
   background-size: 5px 5px;
-  -webkit-mask-image: linear-gradient(100deg, black 0%, black 55%, transparent 78%);
-  mask-image: linear-gradient(100deg, black 0%, black 55%, transparent 78%);
+  -webkit-mask-image: linear-gradient(
+    100deg,
+    black 0%,
+    black 55%,
+    transparent 78%
+  );
+  mask-image: linear-gradient(
+    100deg,
+    black 0%,
+    black 55%,
+    transparent 78%
+  );
 }
 
 .driver-card-text {
@@ -1298,16 +1404,19 @@
   font-size: 2rem;
   opacity: 0.3;
 }
+
 .detail-hero .team-logo-img,
 .detail-hero .team-logo-fallback {
   width: 70px;
   height: 70px;
   flex-shrink: 0;
 }
+
 .history-header,
 .history-row {
   grid-template-columns: 80px 70px 90px 70px !important;
 }
+
 .corner-list-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1325,9 +1434,11 @@
   opacity: 0.85;
 }
 
+
 /* ==============================
    RESPONSIVE - STANDINGS
 ============================== */
+
 @media (max-width: 960px) {
   .standings-header-row,
   .standings-row {
@@ -1357,13 +1468,17 @@
   }
 }
 
+
 /* ==============================
    SCHEDULE - MODERN CARD GRID
 ============================== */
 
 .schedule-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(340px, 1fr)
+  );
   gap: 1.25rem;
   margin-top: 1.5rem;
 }
@@ -1376,7 +1491,9 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
   position: relative;
   overflow: hidden;
 }
@@ -1427,18 +1544,20 @@
 }
 
 .schedule-card-image {
-  width: 90px;
-  height: 70px;
+  width: 95px;
+  height: 72px;
   border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
   background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .schedule-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .schedule-date {
@@ -1448,7 +1567,11 @@
   letter-spacing: 0.03em;
 }
 
-/* Podium results */
+
+/* ==============================
+   PODIUM
+============================== */
+
 .schedule-podium {
   display: flex;
   gap: 0.5rem;
@@ -1485,28 +1608,12 @@
   font-size: 0.68rem;
 }
 
-/* Responsive */
 @media (max-width: 700px) {
   .schedule-grid {
     grid-template-columns: 1fr;
   }
 }
-.schedule-card-image {
-  width: 95px;
-  height: 72px;
-  border-radius: 8px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
 
-.schedule-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 /* ==============================
    SCHEDULE PAGE - SEASON DROPDOWN
@@ -1551,6 +1658,8 @@
   background-color: #e10600;
   color: #ffffff;
 }
+
+
 .coach-feedback-text p {
   margin: 0 0 0.8rem;
   font-size: 0.95rem;
@@ -1565,6 +1674,7 @@
 .coach-braking-row {
   grid-template-columns: 70px 1fr 1fr 100px !important;
 }
+
 .telemetry-subtabs {
   display: flex;
   gap: 0.5rem;
@@ -1596,16 +1706,18 @@
   border-color: var(--f1-red);
   box-shadow: 0 0 20px var(--f1-red-glow);
 }
+
 .flag-icon {
   object-fit: cover;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+
 /* ================================
    GLOBAL SHARP EDGES
-   (Navbar + Team/Driver cards excluded — they keep rounded corners)
 ================================ */
+
 .f1-input-group input,
 .f1-input-group select,
 .f1-dropdown-trigger,
@@ -1632,14 +1744,19 @@
 .detail-hero-fallback {
   border-radius: 0 !important;
 }
-/* LEARN F1 GUIDE button */
+
+
+/* ================================
+   LEARN F1 GUIDE BUTTON
+================================ */
+
 .f1-btn-outline {
   background: transparent;
   color: #e10600;
   border: 1.5px solid #e10600;
   border-radius: 0;
   padding: 0.75rem 1.8rem;
-  margin-left: 12px; /* 👈 gap between both buttons */
+  margin-left: 12px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1655,10 +1772,17 @@
   box-shadow: 0 0 24px rgba(225, 6, 0, 0.45);
 }
 
+
+/* ================================
+   NAVBAR LOGO
+================================ */
+
 .f1-nav-logo {
   text-decoration: none;
   color: inherit;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   display: inline-block;
 }
 
@@ -1670,51 +1794,142 @@
 .f1-nav-logo:hover .f1-logo-accent {
   text-shadow: 0 0 24px var(--f1-red-glow);
 }
-/* ================================
+
+
+/* =========================================================
    RESPONSIVE — MOBILE & TABLET
-================================ */
+========================================================= */
+
 @media (max-width: 900px) {
+
   .f1-page {
     padding: 1.5rem 1.2rem;
   }
 
+
+  /* -----------------------------------------
+     MAIN NAVBAR
+     ----------------------------------------- */
+
   .f1-navbar-inner {
-    padding: 1rem 1.2rem;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.9rem 1.2rem;
+
+    display: flex;
+    align-items: center;
+
+    /* IMPORTANT:
+       Do not wrap navbar items on smaller screens.
+       Keep them in one horizontal row.
+    */
+    flex-wrap: nowrap;
+
+    gap: 1rem;
+
+    box-sizing: border-box;
   }
 
+
+  /* -----------------------------------------
+     NAVIGATION LINKS
+     ----------------------------------------- */
+
   .f1-nav-links {
-    flex-wrap: wrap;
+    display: flex;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    flex-wrap: nowrap;
+
+    justify-content: flex-start;
+
+    gap: 0.35rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    white-space: nowrap;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+
+    overscroll-behavior-x: contain;
+  }
+
+
+  .f1-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* -----------------------------------------
+     NAVIGATION TABS
+     ----------------------------------------- */
+
+  .f1-nav-tab {
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+
+    padding: 0.5rem 0.85rem;
+
+    font-size: 0.68rem;
+
+    min-height: 36px;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
-  .f1-nav-tab {
-    padding: 0.5rem 0.9rem;
-    font-size: 0.68rem;
+
+  /* -----------------------------------------
+     NAVBAR LOGO
+     ----------------------------------------- */
+
+  .f1-nav-logo {
+    flex: 0 0 auto;
   }
+
 
   .hero-title {
     font-size: 1.6rem;
   }
 
+
   .hero-cta-row {
     flex-direction: column;
   }
+
 
   .f1-filters {
     flex-direction: column;
     align-items: stretch;
   }
 
+
   .f1-input-group,
   .f1-dropdown {
     min-width: 100%;
+    width: 100%;
   }
+
+
+  .f1-input-group input,
+  .f1-input-group select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
 
   .teams-grid {
     grid-template-columns: 1fr;
   }
+
 
   .driver-card {
     min-width: 100%;
@@ -1722,46 +1937,60 @@
     flex-direction: column;
   }
 
+
   .driver-card-photo {
     width: 100%;
     height: 160px;
     margin: 0;
   }
 
+
   .driver-card-text {
     padding: 1rem 1.2rem;
   }
+
 
   .f1-standings-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
+
   .summary-facts,
   .circuit-details-grid {
     grid-template-columns: 1fr 1fr;
   }
 
+
   .podium-row {
     grid-template-columns: 1fr;
   }
 
+
   .f1-tower-header,
   .f1-row-skew {
-    grid-template-columns: 40px 60px 1fr 80px 50px !important;
+    grid-template-columns:
+      40px 60px 1fr 80px 50px !important;
+
     font-size: 0.75rem;
+
     padding: 0.6rem 0.8rem;
   }
+
 
   .telemetry-chart-svg {
     height: auto;
   }
 
+
   .chat-panel {
     width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
     right: 1rem;
     bottom: 5.5rem;
+    box-sizing: border-box;
   }
+
 
   .chat-toggle-btn {
     right: 1rem;
@@ -1770,6 +1999,7 @@
     font-size: 0.75rem;
   }
 
+
   .detail-hero {
     flex-direction: column;
     text-align: center;
@@ -1777,16 +2007,180 @@
   }
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 480px) {
+
+  .f1-page {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+
   .hero-title {
     font-size: 1.3rem;
   }
 
+
   .f1-nav-logo {
     font-size: 1rem;
+
+    /* Prevent logo from shrinking */
+    flex-shrink: 0;
   }
 
+
+  /* IMPORTANT:
+     NEVER hide the navbar on mobile.
+     The old code had:
+
+     .f1-nav-links {
+       display: none;
+     }
+
+     That was the reason your mobile navbar disappeared.
+
+     Instead, keep it visible and horizontally scrollable.
+  */
+
   .f1-nav-links {
-    display: none; /* consider a hamburger menu if you want full nav on very small screens */
+    display: flex;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    max-width: 100%;
+
+    flex-wrap: nowrap;
+
+    justify-content: flex-start;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    white-space: nowrap;
+
+    gap: 0.2rem;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+
+  .f1-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .f1-nav-tab {
+    flex: 0 0 auto;
+
+    padding: 0.45rem 0.7rem;
+
+    font-size: 0.64rem;
+
+    min-height: 34px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE STANDINGS NAVBAR
+     ----------------------------------------- */
+
+  .standings-navbar {
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+
+  .standings-navbar::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .standings-tabs {
+    flex-wrap: nowrap;
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+  }
+
+
+  .standings-tab {
+    flex: 0 0 auto;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE TABLE
+     ----------------------------------------- */
+
+  .standings-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  .standings-header-row,
+  .standings-row {
+    min-width: 420px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE SCHEDULE
+     ----------------------------------------- */
+
+  .schedule-card {
+    padding: 1rem;
+  }
+
+
+  .schedule-card-top {
+    gap: 0.6rem;
+  }
+
+
+  .schedule-card-image {
+    width: 80px;
+    height: 64px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE SUMMARY
+     ----------------------------------------- */
+
+  .summary-facts,
+  .circuit-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE BUTTONS
+     ----------------------------------------- */
+
+  .f1-btn,
+  .f1-btn-outline {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
   }
 }
